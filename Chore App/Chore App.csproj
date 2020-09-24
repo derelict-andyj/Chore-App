@@ -6,6 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\LoginController.cs" />
+    <Compile Remove="Migrations\20200924205310_AddingIdentity.cs" />
+    <Compile Remove="Migrations\20200924205310_AddingIdentity.Designer.cs" />
+    <Compile Remove="Migrations\20200924210418_UpdatingDB.cs" />
+    <Compile Remove="Migrations\20200924210418_UpdatingDB.Designer.cs" />
+    <Compile Remove="Models\User.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
       <PrivateAssets>all</PrivateAssets>

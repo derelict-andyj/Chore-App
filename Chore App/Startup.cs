@@ -1,6 +1,7 @@
 using Chore_App.DB;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +24,10 @@ namespace Chore_App
         {
             services.AddControllersWithViews();
             services.AddDbContext<ChoresContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ChoresContext")));
+            services.AddIdentity<IdentityUser, IdentityRole>(options => { })
+            .AddEntityFrameworkStores<ChoresContext>();
+            services.AddMvc(option => option.EnableEndpointRouting = false);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,15 +48,17 @@ namespace Chore_App
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
+            app.UseAuthentication();
 
-            app.UseEndpoints(endpoints =>
+            
+            app.UseMvc(routes =>
             {
-                endpoints.MapControllerRoute(
+                routes.MapRoute(
                     name: "default",
-                    pattern: "{controller=Chores}/{action=Index}/{id?}");
+                    template: "{controller=Chores}/{action=Index}/{id?}");
             });
-           
+         
         }
     }
 }

@@ -12,9 +12,9 @@ namespace Chore_App.Controllers
 {
     public class ChoresController : Controller
     {
-        private readonly ChoresContext context;
+        private readonly DB.ChoresContext context;
 
-        public ChoresController(ChoresContext context)
+        public ChoresController(DB.ChoresContext context)
         {
             this.context = context;
         }

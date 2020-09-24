@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 namespace Chore_App.Models
 {
     public class ChoresList
-    {
+    {   
         public int Id { get; set; }
+
         [Required]
         public string Chore { get; set; }
 
