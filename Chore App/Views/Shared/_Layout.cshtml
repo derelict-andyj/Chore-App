@@ -55,19 +55,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script>
-        
-        $("input[type=checkbox]").change(function () {
-            if (this.checked) {
-                $(this).closest("tr").css("text-decoration", "line-through");
-              
-              
-            } else {
-                $(this).closest("tr").css('text-decoration', 'none');
-           
-            }
-        });
-    </script>
+
     @RenderSection("Scripts", required: false)
 
 </body>

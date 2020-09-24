@@ -93,8 +93,24 @@ namespace Chore_App.Controllers
             }
             return RedirectToAction("Index");
         }
+        public async Task<ActionResult> Complete(int id)
+        {
+            ChoresList item = await context.Chorelist.FindAsync(id);
+            if (item == null)
+            {
+                TempData["Error"] = "The chore does not exist!";
+            }
+            else
+            {
+                item.isComplete = true;
+                context.Update(item);
+                await context.SaveChangesAsync();
+                TempData["Success"] = "Chore has been completed!";
+            }
+            return RedirectToAction("Index");
+        }
 
-        //DELETE
-       
+
+
     }
 }

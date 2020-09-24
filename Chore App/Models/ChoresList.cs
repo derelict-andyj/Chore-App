@@ -11,5 +11,7 @@ namespace Chore_App.Models
         public int Id { get; set; }
         [Required]
         public string Chore { get; set; }
+
+        public bool isComplete { get; set; }
     }
 }

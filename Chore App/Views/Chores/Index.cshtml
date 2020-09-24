@@ -7,24 +7,23 @@
 
 <table class="table">
     <thead>
-        <tr>
-         
-        </tr>
+        
+        <h1>My chores this week</h1>
+        
     </thead>
     <tbody>
         <!--Loop through the chores we have in the DB and add to table-->
-        @foreach (var item in Model)
+        @foreach (var item in Model.Where(i => i.isComplete != true))
         {
         <tr>
-            <td>
-                <input type="checkbox" />
-            </td>
+         
             <td>
                  @item.Chore
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                <a asp-action="Edit" asp-route-id="@item.Id"><button type="button" class="btn btn-secondary">Edit</button></a>
                 <a asp-action="Delete" asp-route-id="@item.Id"><button type="button" class="btn btn-outline-secondary">Delete</button></a>
+                <a asp-action="Complete" asp-route-id="@item.Id"><button type="button" class="btn btn-outline-secondary">Mark Complete</button></a>
             </td>
            
         </tr>
@@ -35,4 +34,20 @@
 <p>
     <a asp-action="Create"><button type="button" class="btn btn-primary"> Create New</button></a>
 </p>
+
+<table class="table">
+    <thead>
+        <h1>Competed Chores</h1>
+    </thead>
+    <tbody>
+        @foreach (var task in Model.Where(m => m.isComplete))
+        {
+            <tr>
+                <td>
+                    @task.Chore
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
