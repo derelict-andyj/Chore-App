@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<Chore_App.Models.ChoresList>
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> SignInManager;
 
 @{
     ViewData["Title"] = "Index";
@@ -7,29 +9,29 @@
 
 <table class="table">
     <thead>
-        
-        <h1>My chores this week</h1>
-        
+
+        <h4>Chores for @User.Identity.Name</h4>
+
     </thead>
     <tbody>
         <!--Loop through the chores we have in the DB and add to table-->
         @foreach (var item in Model.Where(i => i.isComplete != true))
         {
-        <tr>
-         
-            <td>
-                 @item.Chore
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id"><button type="button" class="btn btn-secondary">Edit</button></a>
-                <a asp-action="Delete" asp-route-id="@item.Id"><button type="button" class="btn btn-outline-secondary">Delete</button></a>
-                <a asp-action="Complete" asp-route-id="@item.Id"><button type="button" class="btn btn-outline-secondary">Mark Complete</button></a>
-            </td>
-           
-        </tr>
+            <tr>
+
+                <td>
+                    @item.Chore
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><button type="button" class="btn btn-secondary">Edit</button></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id"><button type="button" class="btn btn-outline-secondary">Delete</button></a>
+                    <a asp-action="Complete" asp-route-id="@item.Id"><button type="button" class="btn btn-outline-secondary">Mark Complete</button></a>
+                </td>
+
+            </tr>
         }
     </tbody>
- 
+
 </table>
 <p>
     <a asp-action="Create"><button type="button" class="btn btn-primary"> Create New</button></a>
