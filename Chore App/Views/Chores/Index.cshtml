@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Chore_App.Models.ChoresList>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+         
+        </tr>
+    </thead>
+    <tbody>
+        <!--Loop through the chores we have in the DB and add to table-->
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <input type="checkbox" />
+            </td>
+            <td>
+                 @item.Chore
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"><button type="button" class="btn btn-secondary">Edit</button></a> 
+                <a asp-action="Delete" asp-route-id="@item.Id"><button type="button" class="btn btn-outline-secondary">Delete</button></a>
+            </td>
+           
+        </tr>
+        }
+    </tbody>
+ 
+</table>
+<p>
+    <a asp-action="Create"><button type="button" class="btn btn-primary"> Create New</button></a>
+</p>
+
