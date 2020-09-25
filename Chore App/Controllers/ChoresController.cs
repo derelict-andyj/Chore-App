@@ -5,18 +5,28 @@ using System.Threading.Tasks;
 using Chore_App.DB;
 using Chore_App.Models;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Chore_App.Controllers
 {
+
+
+
     public class ChoresController : Controller
     {
-        private readonly DB.ChoresContext context;
+        private readonly UserManager<IdentityUser> userManager;
+        private readonly SignInManager<IdentityUser> signInManager;
+        private readonly ChoresContext context;
 
-        public ChoresController(DB.ChoresContext context)
+        public ChoresController(ChoresContext context, 
+                                UserManager<IdentityUser> userManager,
+                                SignInManager<IdentityUser> signInManager)
         {
             this.context = context;
+            this.userManager = userManager;
+            this.signInManager = signInManager;
         }
 
         //GET list of chores
@@ -41,6 +51,8 @@ namespace Chore_App.Controllers
             //check to see if model is valid.
             if(ModelState.IsValid)
             {
+                var user = User.Identity.Name;
+                item.listOwner = user;
                 context.Add(item);
                 await context.SaveChangesAsync();
 
