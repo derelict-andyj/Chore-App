@@ -338,3 +338,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Chore App/Migrations/20200925160409_InitialCreate.Designer.cs
+/Chore App/Migrations/20200925160409_InitialCreate.cs
+/Chore App/Migrations/20200925160016_SQLEXPRESS.Designer.cs
+/Chore App/Migrations/20200925160016_SQLEXPRESS.cs

@@ -75,7 +75,7 @@ namespace Chore_App.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Chores");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
