@@ -11,7 +11,15 @@
     <Compile Remove="Migrations\20200924205310_AddingIdentity.Designer.cs" />
     <Compile Remove="Migrations\20200924210418_UpdatingDB.cs" />
     <Compile Remove="Migrations\20200924210418_UpdatingDB.Designer.cs" />
+    <Compile Remove="Migrations\20200925160016_SQLEXPRESS.cs" />
+    <Compile Remove="Migrations\20200925160016_SQLEXPRESS.Designer.cs" />
+    <Compile Remove="Migrations\20200925160409_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200925160409_InitialCreate.Designer.cs" />
     <Compile Remove="Models\User.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\chore-chart-spongebob.jpg" />
   </ItemGroup>
 
   <ItemGroup>

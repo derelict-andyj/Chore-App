@@ -56,7 +56,7 @@ namespace Chore_App
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Chores}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
          
         }
