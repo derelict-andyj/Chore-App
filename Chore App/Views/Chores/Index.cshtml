@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         <!--Loop through the chores we have in the DB and add to table-->
-        @foreach (var item in Model.Where(i => i.isComplete != true))
+        @foreach (var item in Model.Where(i => i.isComplete != true && i.listOwner == User.Identity.Name))
         {
             <tr>
 
@@ -42,7 +42,7 @@
         <h1>Competed Chores</h1>
     </thead>
     <tbody>
-        @foreach (var task in Model.Where(m => m.isComplete))
+        @foreach (var task in Model.Where(m => m.isComplete && m.listOwner == User.Identity.Name))
         {
             <tr>
                 <td>

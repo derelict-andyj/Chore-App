@@ -14,5 +14,7 @@ namespace Chore_App.Models
         public string Chore { get; set; }
 
         public bool isComplete { get; set; }
+
+        public string listOwner { get; set; }
     }
 }
